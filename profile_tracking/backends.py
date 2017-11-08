@@ -10,5 +10,5 @@ class ProfileTrackingDbEntryBackend(ProfileTrackingBackend):
         p.save()
 
     def process_updated(self, profile):
-        pt = ProfileSaveTracking.objects.get_for_profile(profile)
-        pt.save()
+        for pt in ProfileSaveTracking.objects.get_for_profile(profile):
+            pt.save()
