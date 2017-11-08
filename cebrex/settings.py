@@ -78,16 +78,6 @@ WSGI_APPLICATION = 'cebrex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'cebrex',
-        'USER': 'cebrex',
-        'PASSWORD': 'home1984',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -133,3 +123,5 @@ PROFILE_TRACKING = {
         'profile_tracking.backends.ProfileTrackingDbEntryBackend'
     ]
 }
+
+from .settings_local import *
