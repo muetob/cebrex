@@ -19,12 +19,20 @@ class _ProfileTrackingBackends(object):
         if self._backends is None:
             self._backends = []
 
-            for be in settings.PROFILE_TRACKING_BACKENDS:
+            for be in settings.PROFILE_TRACKING['BACKENDS']:
                 be_class = import_string(be)
 
                 self._backends.append(be_class())
 
         return self._backends
+
+    def process_created(self, profile):
+        for b in self.backends:
+            b.process_created(profile)
+
+    def process_updated(self, profile):
+        for b in self.backends:
+            b.process_updated(profile)
 
 
 profile_tracking = _ProfileTrackingBackends()

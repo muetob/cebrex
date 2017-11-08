@@ -128,5 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 PROFILE_TRACKING = {
-    'PROFILE_MODEL': 'profiles.Profile'
+    'PROFILE_MODEL': 'profiles.Profile',
+    'BACKENDS': [
+        'profile_tracking.backends.ProfileTrackingDbEntryBackend'
+    ]
 }
